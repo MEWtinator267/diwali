@@ -4,116 +4,476 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Happy Diwali from Mcarbon</title>
+
 <style>
-:root{--bg:#f3ebff;--card:#ffffff;--ink:#2a0a5c;--muted:#5d4a85;--accent:#5c00c9;--accent2:#9a55ff;--gold:#ffb703;--ring:#d9c2ff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.logo-w{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12062a;--card:#1f0d45;--ink:#f3ebff;--muted:#c9b3f5;--accent:#b583ff;--accent2:#7a2cf0;--ring:#3d1a7a;color-scheme:dark}
-:root:not([data-theme="light"]) .logo-p{display:none}:root:not([data-theme="light"]) .logo-w{display:inline-block}}
-:root[data-theme="dark"]{--bg:#12062a;--card:#1f0d45;--ink:#f3ebff;--muted:#c9b3f5;--accent:#b583ff;--accent2:#7a2cf0;--ring:#3d1a7a;color-scheme:dark}
-:root[data-theme="dark"] .logo-p{display:none}:root[data-theme="dark"] .logo-w{display:inline-block}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}
-.card{background:var(--card);border:2px solid var(--ring);border-radius:28px;max-width:460px;width:100%;padding:34px 28px;text-align:center;box-shadow:0 14px 44px rgba(92,0,201,.22);position:relative;overflow:hidden}
-.card:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent2))}
-.logo{height:46px;width:auto;margin-top:8px}
-.diya{font-size:64px;margin:18px 0 2px;animation:glow 2s ease-in-out infinite}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 6px var(--gold))}50%{filter:drop-shadow(0 0 24px var(--gold))}}
-h1{font-size:40px;margin:6px 0 10px;color:var(--accent);line-height:1.1;font-weight:800}
-p{font-size:17px;line-height:1.55;color:var(--muted);margin:0 0 24px}
-button{font-family:inherit;font-weight:700;font-size:18px;border:0;border-radius:999px;padding:15px 38px;cursor:pointer;background:linear-gradient(135deg,#5c00c9,#8a3df5);color:#fff;box-shadow:0 6px 20px rgba(92,0,201,.45);transition:transform .15s}
-button:active{transform:scale(.96)}
-.sign{margin-top:22px;font-size:14px;color:var(--muted)}
-#stage{position:fixed;inset:0;background:radial-gradient(ellipse at bottom,#3a0a8a,#0b0220 70%);display:none;z-index:10;color:#fff}
-#stage.on{display:block}
-canvas{position:absolute;inset:0;width:100%;height:100%}
-.msg{position:absolute;left:0;right:0;top:calc(14% + env(safe-area-inset-top,0px));text-align:center;pointer-events:none;padding:0 20px;text-shadow:0 0 18px #9a55ff}
-.msg img{height:34px;width:auto;margin-bottom:14px}
-.msg h2{font-size:clamp(30px,8vw,56px);margin:0 0 8px;color:#ffd43b}
-.msg span{font-size:clamp(16px,4vw,22px);opacity:.9}
-.bar{position:absolute;left:0;right:0;bottom:calc(24px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;justify-content:center}
-.bar button{padding:12px 24px;font-size:16px}
-.bar .ghost{background:rgba(255,255,255,.15);box-shadow:none}
+:root {
+  --bg: #12062a;
+  --card: #1f0d45;
+  --ink: #f3ebff;
+  --muted: #c9b3f5;
+  --accent: #b583ff;
+  --ring: #3d1a7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Greeting card - shown only if celebration is closed */
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--ring);
+  border-radius: 28px;
+  max-width: 460px;
+  width: 100%;
+  padding: 34px 28px;
+  text-align: center;
+  box-shadow: 0 14px 44px rgba(92,0,201,.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 8px;
+  background: linear-gradient(90deg,#b583ff,#ffb703,#7a2cf0);
+}
+
+.logo {
+  height: 46px;
+  width: auto;
+  margin-top: 8px;
+}
+
+.diya {
+  font-size: 64px;
+  margin: 18px 0 2px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,100% { filter: drop-shadow(0 0 6px #ffb703); }
+  50% { filter: drop-shadow(0 0 24px #ffb703); }
+}
+
+h1 {
+  font-size: 40px;
+  margin: 6px 0 10px;
+  color: var(--accent);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+
+button {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  border: 0;
+  border-radius: 999px;
+  padding: 15px 38px;
+  cursor: pointer;
+  background: linear-gradient(135deg,#5c00c9,#8a3df5);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(92,0,201,.45);
+  transition: transform .15s;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.sign {
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Full-screen fireworks celebration */
+
+#stage {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at bottom,#3a0a8a,#0b0220 70%);
+  display: none;
+  z-index: 10;
+  color: #fff;
+  overflow: hidden;
+}
+
+#stage.on {
+  display: block;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.msg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(14% + env(safe-area-inset-top,0px));
+  text-align: center;
+  pointer-events: none;
+  padding: 0 20px;
+  text-shadow: 0 0 18px #9a55ff;
+}
+
+.msg img {
+  height: 34px;
+  width: auto;
+  margin-bottom: 14px;
+}
+
+.msg h2 {
+  font-size: clamp(30px,8vw,56px);
+  margin: 0 0 8px;
+  color: #ffd43b;
+}
+
+.msg span {
+  font-size: clamp(16px,4vw,22px);
+  opacity: .9;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(24px + env(safe-area-inset-bottom,0px));
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bar button {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.bar .ghost {
+  background: rgba(255,255,255,.15);
+  box-shadow: none;
+}
 </style>
 </head>
+
 <body>
+
+<!-- Greeting card -->
+
 <main class="card">
-  <img class="logo logo-p" alt="Mcarbon" src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"><img class="logo logo-w" alt="Mcarbon" src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png">
+  <img
+    class="logo"
+    alt="Mcarbon"
+    src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"
+  >
+
   <div class="diya">🪔</div>
+
   <h1>Happy Diwali!</h1>
-  <p>May the festival of lights fill your home with joy, your year with success, and your heart with warmth. Wishing every member of the Mcarbon family a bright and prosperous Diwali.</p>
+
+  <p>
+    May the festival of lights fill your home with joy,
+    your year with success, and your heart with warmth.
+    Wishing every member of the Mcarbon family a bright
+    and prosperous Diwali.
+  </p>
+
   <button id="go">🎆 Celebrate</button>
+
   <div class="sign">— With love, Team Mcarbon</div>
 </main>
 
-<section id="stage" aria-label="Diwali fireworks">
+<!-- Fireworks screen -->
+
+<section id="stage" class="on" aria-label="Diwali fireworks">
+
   <canvas id="c"></canvas>
-  <div class="msg"><img alt="Mcarbon" src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"><h2>Happy Diwali, Team Mcarbon! 🪔</h2><span>Tap anywhere to light more crackers</span></div>
-  <div class="bar"><button id="again">🧨 More crackers</button><button id="close" class="ghost">Close</button></div>
+
+  <div class="msg">
+    <img
+      alt="Mcarbon"
+      src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"
+    >
+
+    <h2>Happy Diwali, Team Mcarbon! 🪔</h2>
+
+    <span>Tap anywhere to light more crackers</span>
+  </div>
+
+  <div class="bar">
+    <button id="again">🧨 More crackers</button>
+    <button id="close" class="ghost">Close</button>
+  </div>
+
 </section>
 
 <script>
-(function(){
-var stage=document.getElementById('stage'),cv=document.getElementById('c'),ctx=cv.getContext('2d');
-var W,H,rockets=[],parts=[],timer=null,raf=null,ac=null;
-var colors=['#ffd43b','#b583ff','#ff922b','#fff3bf','#f783ac','#9a55ff','#69db7c','#4dabf7'];
-function size(){var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
-addEventListener('resize',size);
-function boom(vol){
-  try{
-    ac=ac||new (window.AudioContext||window.webkitAudioContext)();
-    var n=ac.sampleRate*0.6,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);
-    for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,3);
-    var s=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();
-    s.buffer=b;f.type='lowpass';f.frequency.value=500+Math.random()*500;g.gain.value=vol||0.7;
-    s.connect(f);f.connect(g);g.connect(ac.destination);s.start();
-  }catch(e){}
-}
-function launch(x,tx,ty){
-  rockets.push({x:x,y:H,tx:tx!=null?tx:x+(Math.random()-.5)*120,ty:ty!=null?ty:H*(0.15+Math.random()*0.4),c:colors[Math.random()*colors.length|0]});
-}
-function burst(x,y,c){
-  boom(0.5+Math.random()*0.4);
-  var n=70+Math.random()*50|0,ring=Math.random()<.4;
-  for(var i=0;i<n;i++){
-    var a=Math.PI*2*i/n,sp=ring?4:1+Math.random()*5;
-    parts.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,c:Math.random()<.3?colors[Math.random()*colors.length|0]:c});
+(function () {
+
+  var stage = document.getElementById('stage');
+  var cv = document.getElementById('c');
+  var ctx = cv.getContext('2d');
+
+  var W, H;
+  var rockets = [];
+  var parts = [];
+  var timer = null;
+  var raf = null;
+  var ac = null;
+
+  var colors = [
+    '#ffd43b',
+    '#b583ff',
+    '#ff922b',
+    '#fff3bf',
+    '#f783ac',
+    '#9a55ff',
+    '#69db7c',
+    '#4dabf7'
+  ];
+
+  function size() {
+    var d = window.devicePixelRatio || 1;
+
+    W = window.innerWidth;
+    H = window.innerHeight;
+
+    cv.width = W * d;
+    cv.height = H * d;
+
+    ctx.setTransform(d, 0, 0, d, 0, 0);
   }
-}
-function frame(){
-  ctx.globalCompositeOperation='destination-out';ctx.fillStyle='rgba(0,0,0,.22)';ctx.fillRect(0,0,W,H);
-  ctx.globalCompositeOperation='lighter';
-  for(var i=rockets.length-1;i>=0;i--){
-    var r=rockets[i],dx=r.tx-r.x,dy=r.ty-r.y,dist=Math.hypot(dx,dy);
-    if(dist<12){burst(r.x,r.y,r.c);rockets.splice(i,1);continue}
-    r.x+=dx/dist*11;r.y+=dy/dist*11;
-    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(r.x,r.y,2.2,0,7);ctx.fill();
+
+  window.addEventListener('resize', size);
+
+  function boom(vol) {
+    try {
+      ac = ac || new (
+        window.AudioContext || window.webkitAudioContext
+      )();
+
+      if (ac.state === 'suspended') {
+        ac.resume();
+      }
+
+      var n = ac.sampleRate * 0.6;
+      var b = ac.createBuffer(1, n, ac.sampleRate);
+      var d = b.getChannelData(0);
+
+      for (var i = 0; i < n; i++) {
+        d[i] = (Math.random() * 2 - 1) *
+          Math.pow(1 - i / n, 3);
+      }
+
+      var s = ac.createBufferSource();
+      var f = ac.createBiquadFilter();
+      var g = ac.createGain();
+
+      s.buffer = b;
+      f.type = 'lowpass';
+      f.frequency.value = 500 + Math.random() * 500;
+      g.gain.value = vol || 0.7;
+
+      s.connect(f);
+      f.connect(g);
+      g.connect(ac.destination);
+
+      s.start();
+
+    } catch (e) {}
   }
-  for(var j=parts.length-1;j>=0;j--){
-    var p=parts[j];p.x+=p.vx;p.y+=p.vy;p.vx*=.98;p.vy=p.vy*.98+.06;p.life-=.012;
-    if(p.life<=0){parts.splice(j,1);continue}
-    ctx.globalAlpha=p.life;ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,2.2,0,7);ctx.fill();
+
+  function launch(x, tx, ty) {
+    rockets.push({
+      x: x,
+      y: H,
+      tx: tx != null ? tx : x + (Math.random() - 0.5) * 120,
+      ty: ty != null ? ty : H * (0.15 + Math.random() * 0.4),
+      c: colors[Math.random() * colors.length | 0]
+    });
   }
-  ctx.globalAlpha=1;
-  raf=requestAnimationFrame(frame);
-}
-function start(){
-  stage.classList.add('on');size();boom(.3);
-  for(var i=0;i<5;i++)setTimeout(function(){launch(W*(0.15+Math.random()*0.7))},i*220);
-  if(!raf)frame();
-  clearInterval(timer);
-  timer=setInterval(function(){launch(W*(0.1+Math.random()*0.8))},650);
-}
-function stop(){stage.classList.remove('on');clearInterval(timer);cancelAnimationFrame(raf);raf=null;rockets=[];parts=[]}
-document.getElementById('go').onclick=start;
-document.getElementById('close').onclick=function(e){e.stopPropagation();stop()};
-document.getElementById('again').onclick=function(e){e.stopPropagation();for(var i=0;i<6;i++)setTimeout(function(){launch(W*(0.1+Math.random()*0.8))},i*120)};
-stage.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;launch(e.clientX,e.clientX,e.clientY)});
-if(location.hash==='#celebrate')setTimeout(start,300);
+
+  function burst(x, y, c) {
+    boom(0.5 + Math.random() * 0.4);
+
+    var n = 70 + Math.random() * 50 | 0;
+    var ring = Math.random() < 0.4;
+
+    for (var i = 0; i < n; i++) {
+      var a = Math.PI * 2 * i / n;
+      var sp = ring ? 4 : 1 + Math.random() * 5;
+
+      parts.push({
+        x: x,
+        y: y,
+        vx: Math.cos(a) * sp,
+        vy: Math.sin(a) * sp,
+        life: 1,
+        c: Math.random() < 0.3
+          ? colors[Math.random() * colors.length | 0]
+          : c
+      });
+    }
+  }
+
+  function frame() {
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,.22)';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.globalCompositeOperation = 'lighter';
+
+    for (var i = rockets.length - 1; i >= 0; i--) {
+
+      var r = rockets[i];
+
+      var dx = r.tx - r.x;
+      var dy = r.ty - r.y;
+      var dist = Math.hypot(dx, dy);
+
+      if (dist < 12) {
+        burst(r.x, r.y, r.c);
+        rockets.splice(i, 1);
+        continue;
+      }
+
+      r.x += dx / dist * 11;
+      r.y += dy / dist * 11;
+
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(r.x, r.y, 2.2, 0, 7);
+      ctx.fill();
+    }
+
+    for (var j = parts.length - 1; j >= 0; j--) {
+
+      var p = parts[j];
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      p.vx *= 0.98;
+      p.vy = p.vy * 0.98 + 0.06;
+
+      p.life -= 0.012;
+
+      if (p.life <= 0) {
+        parts.splice(j, 1);
+        continue;
+      }
+
+      ctx.globalAlpha = p.life;
+      ctx.fillStyle = p.c;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2.2, 0, 7);
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+
+    raf = requestAnimationFrame(frame);
+  }
+
+  function start() {
+
+    stage.classList.add('on');
+
+    size();
+    boom(0.3);
+
+    for (var i = 0; i < 5; i++) {
+      setTimeout(function () {
+        launch(W * (0.15 + Math.random() * 0.7));
+      }, i * 220);
+    }
+
+    if (!raf) {
+      frame();
+    }
+
+    clearInterval(timer);
+
+    timer = setInterval(function () {
+      launch(W * (0.1 + Math.random() * 0.8));
+    }, 650);
+  }
+
+  function stop() {
+
+    stage.classList.remove('on');
+
+    clearInterval(timer);
+    cancelAnimationFrame(raf);
+
+    raf = null;
+    rockets = [];
+    parts = [];
+  }
+
+  document.getElementById('go').onclick = start;
+
+  document.getElementById('close').onclick = function (e) {
+    e.stopPropagation();
+    stop();
+  };
+
+  document.getElementById('again').onclick = function (e) {
+    e.stopPropagation();
+
+    for (var i = 0; i < 6; i++) {
+      setTimeout(function () {
+        launch(W * (0.1 + Math.random() * 0.8));
+      }, i * 120);
+    }
+  };
+
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('button')) return;
+
+    launch(e.clientX, e.clientX, e.clientY);
+  });
+
+  // Automatically start fireworks when the website opens.
+  start();
+
 })();
 </script>
+
 </body>
 </html>
-
- 
