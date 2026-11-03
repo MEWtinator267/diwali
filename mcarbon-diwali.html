@@ -1,502 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#12062a">
-  <title>Happy Diwali | Mcarbon</title>
-
-  <style>
-    :root {
-      --bg: #12062a;
-      --purple: #7b2cff;
-      --gold: #ffd43b;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, #54228b, transparent 55%),
-        linear-gradient(145deg, #12062a, #25074c);
-      color: var(--white);
-    }
-
-    .card {
-      width: 100%;
-      max-width: 480px;
-      padding: 24px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 24px;
-      background: rgba(255,255,255,.08);
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-      backdrop-filter: blur(12px);
-      animation: appear .7s ease;
-    }
-
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .poster {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 480px;
-      object-fit: contain;
-      border-radius: 14px;
-      margin-bottom: 24px;
-    }
-
-    .diya {
-      font-size: 48px;
-      margin-bottom: 10px;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { filter: drop-shadow(0 0 5px #ffb703); }
-      to { filter: drop-shadow(0 0 22px #ffb703); }
-    }
-
-    h1 {
-      font-size: clamp(30px, 8vw, 42px);
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #e4d8ff;
-      margin-bottom: 24px;
-    }
-
-    button {
-      border: none;
-      padding: 14px 32px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #7b2cff, #b15cff);
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 6px 22px rgba(123,44,255,.4);
-      transition: transform .2s;
-    }
-
-    button:hover {
-      transform: translateY(-3px);
-    }
-
-    button:active {
-      transform: scale(.96);
-    }
-
-    .sign {
-      margin-top: 22px;
-      color: #d1baff;
-      font-size: 14px;
-    }
-
-    #stage {
-      position: fixed;
-      inset: 0;
-      display: none;
-      z-index: 10;
-      overflow: hidden;
-      background: radial-gradient(ellipse at bottom, #3a0a8a, #0b0220 75%);
-    }
-
-    #stage.active {
-      display: block;
-    }
-
-    canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .message {
-      position: absolute;
-      top: 15%;
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      pointer-events: none;
-      text-shadow: 0 0 20px #9a55ff;
-    }
-
-    .message img {
-      width: min(80%, 360px);
-      max-height: 220px;
-      object-fit: contain;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    .message h2 {
-      font-size: clamp(28px, 7vw, 52px);
-      color: var(--gold);
-    }
-
-    .message span {
-      display: block;
-      margin-top: 12px;
-      font-size: clamp(15px, 4vw, 21px);
-    }
-
-    .actions {
-      position: absolute;
-      bottom: max(25px, env(safe-area-inset-bottom));
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 10px;
-    }
-
-    .actions button {
-      padding: 12px 22px;
-      font-size: 15px;
-    }
-
-    .actions .close {
-      background: rgba(255,255,255,.2);
-      box-shadow: none;
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 18px;
-      }
-
-      .poster {
-        max-height: 55vh;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Diwali from Mcarbon</title>
+<style>
+:root{--bg:#f3ebff;--card:#ffffff;--ink:#2a0a5c;--muted:#5d4a85;--accent:#5c00c9;--accent2:#9a55ff;--gold:#ffb703;--ring:#d9c2ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.logo-w{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12062a;--card:#1f0d45;--ink:#f3ebff;--muted:#c9b3f5;--accent:#b583ff;--accent2:#7a2cf0;--ring:#3d1a7a;color-scheme:dark}
+:root:not([data-theme="light"]) .logo-p{display:none}:root:not([data-theme="light"]) .logo-w{display:inline-block}}
+:root[data-theme="dark"]{--bg:#12062a;--card:#1f0d45;--ink:#f3ebff;--muted:#c9b3f5;--accent:#b583ff;--accent2:#7a2cf0;--ring:#3d1a7a;color-scheme:dark}
+:root[data-theme="dark"] .logo-p{display:none}:root[data-theme="dark"] .logo-w{display:inline-block}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:var(--card);border:2px solid var(--ring);border-radius:28px;max-width:460px;width:100%;padding:34px 28px;text-align:center;box-shadow:0 14px 44px rgba(92,0,201,.22);position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent2))}
+.logo{height:46px;width:auto;margin-top:8px}
+.diya{font-size:64px;margin:18px 0 2px;animation:glow 2s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 6px var(--gold))}50%{filter:drop-shadow(0 0 24px var(--gold))}}
+h1{font-size:40px;margin:6px 0 10px;color:var(--accent);line-height:1.1;font-weight:800}
+p{font-size:17px;line-height:1.55;color:var(--muted);margin:0 0 24px}
+button{font-family:inherit;font-weight:700;font-size:18px;border:0;border-radius:999px;padding:15px 38px;cursor:pointer;background:linear-gradient(135deg,#5c00c9,#8a3df5);color:#fff;box-shadow:0 6px 20px rgba(92,0,201,.45);transition:transform .15s}
+button:active{transform:scale(.96)}
+.sign{margin-top:22px;font-size:14px;color:var(--muted)}
+#stage{position:fixed;inset:0;background:radial-gradient(ellipse at bottom,#3a0a8a,#0b0220 70%);display:none;z-index:10;color:#fff}
+#stage.on{display:block}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+.msg{position:absolute;left:0;right:0;top:calc(14% + env(safe-area-inset-top,0px));text-align:center;pointer-events:none;padding:0 20px;text-shadow:0 0 18px #9a55ff}
+.msg img{height:34px;width:auto;margin-bottom:14px}
+.msg h2{font-size:clamp(30px,8vw,56px);margin:0 0 8px;color:#ffd43b}
+.msg span{font-size:clamp(16px,4vw,22px);opacity:.9}
+.bar{position:absolute;left:0;right:0;bottom:calc(24px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;justify-content:center}
+.bar button{padding:12px 24px;font-size:16px}
+.bar .ghost{background:rgba(255,255,255,.15);box-shadow:none}
+</style>
 </head>
-
 <body>
-
-  <main class="card">
-
-    <img
-      class="poster"
-      src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"
-      alt="Mcarbon Diwali greeting"
-      fetchpriority="high"
-    >
-
-    <div class="diya">🪔</div>
-
-    <h1>Happy Diwali!</h1>
-
-    <p>
-      May the festival of lights fill your home with joy,
-      your year with success, and your heart with warmth.
-      Wishing every member of the Mcarbon family a bright
-      and prosperous Diwali.
-    </p>
-
-    <button id="celebrate">🎆 Celebrate</button>
-
-    <div class="sign">
-      — With love, Team Mcarbon
-    </div>
-
-  </main>
-
-  <section id="stage" aria-label="Diwali fireworks">
-
-    <canvas id="fireworks"></canvas>
-
-    <div class="message">
-      <img
-        src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"
-        alt="Mcarbon Diwali greeting"
-      >
-
-      <h2>Happy Diwali, Team Mcarbon! 🪔</h2>
-
-      <span>Tap anywhere to light more crackers</span>
-    </div>
-
-    <div class="actions">
-      <button id="more">🧨 More crackers</button>
-      <button id="close" class="close">Close</button>
-    </div>
-
-  </section>
-
-  <script>
-    (() => {
-      "use strict";
-
-      const stage = document.getElementById("stage");
-      const canvas = document.getElementById("fireworks");
-      const ctx = canvas.getContext("2d");
-
-      if (!ctx) return;
-
-      let width = 0;
-      let height = 0;
-      let rockets = [];
-      let particles = [];
-      let animationId = null;
-      let launchTimer = null;
-      let audioContext = null;
-
-      const colors = [
-        "#ffd43b",
-        "#b583ff",
-        "#ff922b",
-        "#fff3bf",
-        "#f783ac",
-        "#9a55ff",
-        "#69db7c",
-        "#4dabf7"
-      ];
-
-      function resize() {
-        const ratio = Math.min(window.devicePixelRatio || 1, 2);
-
-        width = window.innerWidth;
-        height = window.innerHeight;
-
-        canvas.width = width * ratio;
-        canvas.height = height * ratio;
-
-        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      }
-
-      window.addEventListener("resize", resize);
-
-      function playSound() {
-        try {
-          audioContext = audioContext ||
-            new (window.AudioContext || window.webkitAudioContext)();
-
-          if (audioContext.state === "suspended") {
-            audioContext.resume();
-          }
-
-          const duration = 0.35;
-          const buffer = audioContext.createBuffer(
-            1,
-            audioContext.sampleRate * duration,
-            audioContext.sampleRate
-          );
-
-          const data = buffer.getChannelData(0);
-
-          for (let i = 0; i < data.length; i++) {
-            data[i] = (Math.random() * 2 - 1) *
-              Math.pow(1 - i / data.length, 3);
-          }
-
-          const source = audioContext.createBufferSource();
-          const filter = audioContext.createBiquadFilter();
-          const gain = audioContext.createGain();
-
-          source.buffer = buffer;
-          filter.type = "lowpass";
-          filter.frequency.value = 800;
-
-          gain.gain.setValueAtTime(0.3, audioContext.currentTime);
-          gain.gain.exponentialRampToValueAtTime(
-            0.001,
-            audioContext.currentTime + duration
-          );
-
-          source.connect(filter);
-          filter.connect(gain);
-          gain.connect(audioContext.destination);
-
-          source.start();
-        } catch (error) {
-          // Audio is optional; fireworks work without it.
-        }
-      }
-
-      function launch(x, targetX, targetY) {
-        rockets.push({
-          x,
-          y: height,
-          targetX: targetX ?? x + (Math.random() - 0.5) * 120,
-          targetY: targetY ?? height * (0.15 + Math.random() * 0.4),
-          color: colors[Math.floor(Math.random() * colors.length)]
-        });
-      }
-
-      function explode(x, y, color) {
-        playSound();
-
-        const count = 80 + Math.floor(Math.random() * 45);
-
-        for (let i = 0; i < count; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          const speed = 1.5 + Math.random() * 5;
-
-          particles.push({
-            x,
-            y,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            life: 1,
-            color: Math.random() < 0.3
-              ? colors[Math.floor(Math.random() * colors.length)]
-              : color
-          });
-        }
-      }
-
-      function animate() {
-        ctx.globalCompositeOperation = "destination-out";
-        ctx.fillStyle = "rgba(0,0,0,0.2)";
-        ctx.fillRect(0, 0, width, height);
-
-        ctx.globalCompositeOperation = "lighter";
-
-        for (let i = rockets.length - 1; i >= 0; i--) {
-          const rocket = rockets[i];
-
-          const dx = rocket.targetX - rocket.x;
-          const dy = rocket.targetY - rocket.y;
-          const distance = Math.hypot(dx, dy);
-
-          if (distance < 12) {
-            explode(rocket.x, rocket.y, rocket.color);
-            rockets.splice(i, 1);
-            continue;
-          }
-
-          rocket.x += (dx / distance) * 11;
-          rocket.y += (dy / distance) * 11;
-
-          ctx.fillStyle = "#ffffff";
-          ctx.beginPath();
-          ctx.arc(rocket.x, rocket.y, 2.5, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        for (let i = particles.length - 1; i >= 0; i--) {
-          const particle = particles[i];
-
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-
-          particle.vx *= 0.98;
-          particle.vy = particle.vy * 0.98 + 0.06;
-          particle.life -= 0.012;
-
-          if (particle.life <= 0) {
-            particles.splice(i, 1);
-            continue;
-          }
-
-          ctx.globalAlpha = particle.life;
-          ctx.fillStyle = particle.color;
-
-          ctx.beginPath();
-          ctx.arc(particle.x, particle.y, 2.2, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        ctx.globalAlpha = 1;
-        animationId = requestAnimationFrame(animate);
-      }
-
-      function start() {
-        if (stage.classList.contains("active")) return;
-
-        stage.classList.add("active");
-        resize();
-        playSound();
-
-        for (let i = 0; i < 5; i++) {
-          setTimeout(() => {
-            launch(width * (0.15 + Math.random() * 0.7));
-          }, i * 220);
-        }
-
-        if (!animationId) {
-          animationId = requestAnimationFrame(animate);
-        }
-
-        launchTimer = setInterval(() => {
-          launch(width * (0.1 + Math.random() * 0.8));
-        }, 750);
-      }
-
-      function stop() {
-        stage.classList.remove("active");
-
-        clearInterval(launchTimer);
-
-        if (animationId) {
-          cancelAnimationFrame(animationId);
-          animationId = null;
-        }
-
-        rockets = [];
-        particles = [];
-
-        ctx.clearRect(0, 0, width, height);
-      }
-
-      document.getElementById("celebrate")
-        .addEventListener("click", start);
-
-      document.getElementById("close")
-        .addEventListener("click", stop);
-
-      document.getElementById("more")
-        .addEventListener("click", () => {
-          for (let i = 0; i < 6; i++) {
-            setTimeout(() => {
-              launch(width * (0.1 + Math.random() * 0.8));
-            }, i * 120);
-          }
-        });
-
-      stage.addEventListener("pointerdown", event => {
-        if (event.target.closest("button")) return;
-
-        launch(event.clientX, event.clientX, event.clientY);
-      });
-
-      if (window.location.hash === "#celebrate") {
-        setTimeout(start, 300);
-      }
-
-    })();
-  </script>
-
+<main class="card">
+  <img class="logo logo-p" alt="Mcarbon" src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"><img class="logo logo-w" alt="Mcarbon" src="https://YOUR-BUCKET.s3.YOUR-REGION.amazonaws.com/diwali/images/logo-white.png">
+  <div class="diya">🪔</div>
+  <h1>Happy Diwali!</h1>
+  <p>May the festival of lights fill your home with joy, your year with success, and your heart with warmth. Wishing every member of the Mcarbon family a bright and prosperous Diwali.</p>
+  <button id="go">🎆 Celebrate</button>
+  <div class="sign">— With love, Team Mcarbon</div>
+</main>
+
+<section id="stage" aria-label="Diwali fireworks">
+  <canvas id="c"></canvas>
+  <div class="msg"><img alt="Mcarbon" src="https://mcarbon-rcs-bucket.s3.ap-south-1.amazonaws.com/449549/mcarbon-diwali-post.png"><h2>Happy Diwali, Team Mcarbon! 🪔</h2><span>Tap anywhere to light more crackers</span></div>
+  <div class="bar"><button id="again">🧨 More crackers</button><button id="close" class="ghost">Close</button></div>
+</section>
+
+<script>
+(function(){
+var stage=document.getElementById('stage'),cv=document.getElementById('c'),ctx=cv.getContext('2d');
+var W,H,rockets=[],parts=[],timer=null,raf=null,ac=null;
+var colors=['#ffd43b','#b583ff','#ff922b','#fff3bf','#f783ac','#9a55ff','#69db7c','#4dabf7'];
+function size(){var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+addEventListener('resize',size);
+function boom(vol){
+  try{
+    ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+    var n=ac.sampleRate*0.6,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);
+    for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,3);
+    var s=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();
+    s.buffer=b;f.type='lowpass';f.frequency.value=500+Math.random()*500;g.gain.value=vol||0.7;
+    s.connect(f);f.connect(g);g.connect(ac.destination);s.start();
+  }catch(e){}
+}
+function launch(x,tx,ty){
+  rockets.push({x:x,y:H,tx:tx!=null?tx:x+(Math.random()-.5)*120,ty:ty!=null?ty:H*(0.15+Math.random()*0.4),c:colors[Math.random()*colors.length|0]});
+}
+function burst(x,y,c){
+  boom(0.5+Math.random()*0.4);
+  var n=70+Math.random()*50|0,ring=Math.random()<.4;
+  for(var i=0;i<n;i++){
+    var a=Math.PI*2*i/n,sp=ring?4:1+Math.random()*5;
+    parts.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,c:Math.random()<.3?colors[Math.random()*colors.length|0]:c});
+  }
+}
+function frame(){
+  ctx.globalCompositeOperation='destination-out';ctx.fillStyle='rgba(0,0,0,.22)';ctx.fillRect(0,0,W,H);
+  ctx.globalCompositeOperation='lighter';
+  for(var i=rockets.length-1;i>=0;i--){
+    var r=rockets[i],dx=r.tx-r.x,dy=r.ty-r.y,dist=Math.hypot(dx,dy);
+    if(dist<12){burst(r.x,r.y,r.c);rockets.splice(i,1);continue}
+    r.x+=dx/dist*11;r.y+=dy/dist*11;
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(r.x,r.y,2.2,0,7);ctx.fill();
+  }
+  for(var j=parts.length-1;j>=0;j--){
+    var p=parts[j];p.x+=p.vx;p.y+=p.vy;p.vx*=.98;p.vy=p.vy*.98+.06;p.life-=.012;
+    if(p.life<=0){parts.splice(j,1);continue}
+    ctx.globalAlpha=p.life;ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,2.2,0,7);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+  raf=requestAnimationFrame(frame);
+}
+function start(){
+  stage.classList.add('on');size();boom(.3);
+  for(var i=0;i<5;i++)setTimeout(function(){launch(W*(0.15+Math.random()*0.7))},i*220);
+  if(!raf)frame();
+  clearInterval(timer);
+  timer=setInterval(function(){launch(W*(0.1+Math.random()*0.8))},650);
+}
+function stop(){stage.classList.remove('on');clearInterval(timer);cancelAnimationFrame(raf);raf=null;rockets=[];parts=[]}
+document.getElementById('go').onclick=start;
+document.getElementById('close').onclick=function(e){e.stopPropagation();stop()};
+document.getElementById('again').onclick=function(e){e.stopPropagation();for(var i=0;i<6;i++)setTimeout(function(){launch(W*(0.1+Math.random()*0.8))},i*120)};
+stage.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;launch(e.clientX,e.clientX,e.clientY)});
+if(location.hash==='#celebrate')setTimeout(start,300);
+})();
+</script>
 </body>
 </html>
+
+ 
